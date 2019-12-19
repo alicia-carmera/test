@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "description": "Dash markings are linear pavement markings that are short sections of larger linear pavement-marking entities.",
+  "sources": [
+    {
+      "layer": "Dash_markings.geojson",
+      "fields": ["geometry"]
+    }
+  ],
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "geometry": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "options": ["LineString"]
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "required": [
+        "coordinates",
+        "type"
+      ]
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique id for the dash marking.",
+          "type": "integer"
+        },
+        "line_marking_id": {
+          "description": "Parent line_marking id.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "line_marking_id"
+      ]
+    }
+  },
+  "required": [
+    "geometry",
+    "properties",
+    "type"
+  ]
+}
